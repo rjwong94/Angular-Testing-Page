@@ -1,0 +1,8 @@
+<label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+
+<!-- Displaying Form Control value through interpolation  -->
+<p>Value: {{ name.value }}</p>
+
+<!-- Changes Form Control value starting from the backend and going to view -->
+<button (click)="updateName()">Change Name</button>
