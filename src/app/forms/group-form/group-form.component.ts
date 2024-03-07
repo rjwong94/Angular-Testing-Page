@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-group-form',
@@ -9,23 +9,30 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrl: './group-form.component.scss'
 })
 export class GroupFormComponent {
-  profileForm = new FormGroup(
-    {
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      address: new FormGroup(
-        {
-          street: new FormControl(''),
-          city: new FormControl(''),
-          state: new FormControl(''),
-          zip: new FormControl(''),
-        }
-      )
-    }
-  )
+  profileForm = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: [''],
+    address: this.formBuilder.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: [''],
+    }),
+  });
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
+
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street',
+      },
+    });
+  }
+
+  constructor(private formBuilder: FormBuilder) { }
 }

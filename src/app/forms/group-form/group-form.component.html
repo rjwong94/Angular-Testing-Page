@@ -5,6 +5,9 @@
   <label for="last-name">Last Name: </label>
   <input id="last-name" type="text" formControlName="lastName">
 
+  <!-- The below button will not be enabled until the profileForm becomes valid. This can be done by the updateProfile() method called at the bottom. -->
+  <button type="submit" (click)="onSubmit()" [disabled]="!profileForm.valid">Update</button>
+
   <div formGroupName="address" class="address-form">
     <h3>Address</h3>
 
@@ -24,6 +27,7 @@
   <p>Complete the form to enter the button</p>
 </form>
 
-<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+<button type="button" (click)="updateProfile()">Submit</button>
 
-<p>Full Name: {{profileForm.value.firstName}} {{profileForm.value.lastName}}</p>
+<p>Full Name: {{profileForm.value.firstName}} {{profileForm.value.address?.street}}</p>
+<p>{{profileForm.status}}</p>
