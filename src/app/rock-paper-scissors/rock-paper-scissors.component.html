@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<div class="game-selections">
+  <div class="rock">
+      <p>Rock</p>
+      <button (click)="rockChoice()"><img alt="Rock Button" [src]="rockImage"></button>
+  </div>
+    
+  <div class="paper">
+    <p>Paper</p>
+    <button (click)="paperChoice()"><img alt="Paper Button" [src]="paperImage"></button>
+  </div>
+    
+  <div class="scissors">
+    <p>Scissors</p>
+    <button (click)="scissorsChoice()"><img alt="Scissors Button" [src]="scissorsImage"></button>
+  </div>
+</div>
+
+<div class="scoreboard">
+  <div [innerText]="outcome"></div>
+  <h1>Scoreboard</h1>
+  <div class="score">
+    <h2>Wins</h2>
+    {{wins}}
+    <h2>Losses</h2>
+    {{losses}}
+    <h2>Ties</h2>
+    {{ties}}
+    <button (click)="resetButton()">RESET</button>
+  </div>
+</div>

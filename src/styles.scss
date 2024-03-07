@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.navigation-bar {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: blue;
+}
+
+a, a:visited, a:link{
+  text-decoration: none;
+  margin-right: 10px;
+  color: red;
+  margin: 10px;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
